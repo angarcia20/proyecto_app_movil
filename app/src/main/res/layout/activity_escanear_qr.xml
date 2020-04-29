@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EscanearQr">
+    tools:context=".EscanearQr"
+    tools:openDrawer="end"
+    android:id="@+id/drawer">
 
-    <Button
-        android:id="@+id/btnEscaner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="Escanear"
-        android:text="Escanear el codigo QR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.234" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnEscaner2"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:onClick="Escanear"
-        android:text="Confirmar Cedula"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEscaner"
-        app:layout_constraintVertical_bias="0.19" />
+        <Button
+            android:id="@+id/btnEscaner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Escanear"
+            android:text="Escanear el codigo QR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:layout_constraintVertical_bias="0.234" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="226dp"
-        android:layout_height="247dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183"
-        app:srcCompat="@drawable/escanear_usuario" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="226dp"
+            android:layout_height="247dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.183"
+            app:srcCompat="@drawable/escanear_usuario" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnEscaner2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:onClick="Escanear"
+            android:text="Confirmar Cedula"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEscaner"
+            app:layout_constraintVertical_bias="0.19" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/colorPrimary"/>
+
+
+    </RelativeLayout>
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationView"
+        app:menu="@menu/menu_item"
+        app:headerLayout="@layout/header"
+        android:background="#fff"
+        android:layout_gravity="start"
+        app:itemTextColor="@color/cardview_dark_background" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

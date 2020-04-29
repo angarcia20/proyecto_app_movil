@@ -58,16 +58,22 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.profile:
-                Toast.makeText(bienvenida.this,"profile Select",Toast.LENGTH_SHORT).show();
+                Toast.makeText(bienvenida.this,"Registrar Usuario",Toast.LENGTH_SHORT).show();
+                Intent login= new Intent(this, registro.class);
+                startActivity(login);
                 break;
             case R.id.contact:
-                Toast.makeText(bienvenida.this,"contact Select",Toast.LENGTH_SHORT).show();
+                Toast.makeText(bienvenida.this,"Escanear Qr",Toast.LENGTH_SHORT).show();
+                Intent ConfirmarQr= new Intent(this, EscanearQr.class);
+                startActivity(ConfirmarQr);
                 break;
             case R.id.about:
-                Toast.makeText(bienvenida.this,"about Select",Toast.LENGTH_SHORT).show();
+                Toast.makeText(bienvenida.this,"Estas en el Inicio",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.logout:
-                Toast.makeText(bienvenida.this,"logout Select",Toast.LENGTH_SHORT).show();
+                Toast.makeText(bienvenida.this,"Sesion Cerrada",Toast.LENGTH_SHORT).show();
+                Intent logout= new Intent(this, MainActivity.class);
+                startActivity(logout);
                 break;
 
         }

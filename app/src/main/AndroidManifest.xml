@@ -12,28 +12,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".QR"></activity>
+
+
         <activity android:name=".bienvenida"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">>
-
-        <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
 
 
-        <activity android:name=".EscanearQr" />
-        <activity android:name=".registro" />
+        <activity android:name=".EscanearQr"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
+
+        <activity android:name=".registro"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
+
         <activity
             android:name=".splash_screen"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-           <!-- <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
+
+
         <activity android:name=".MainActivity" />
     </application>
 
