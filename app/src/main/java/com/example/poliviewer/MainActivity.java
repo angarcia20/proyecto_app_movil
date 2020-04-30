@@ -33,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
             boolean user= admin.usuario(usuario);
             boolean pass =admin.contraseña(contraseña);
             if (user== true && pass== true) {
-                    Toast.makeText(this, "Sesion iniciada", Toast.LENGTH_SHORT).show();
                     BaseDeDatos.close();
-                Intent intent= new Intent(MainActivity.this, bienvenida.class);
+                Intent intent= new Intent(MainActivity.this, cargaLogin.class);
                 startActivity(intent);
             } else {
                 Toast.makeText(this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();

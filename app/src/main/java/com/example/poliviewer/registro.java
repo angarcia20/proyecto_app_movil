@@ -79,37 +79,50 @@ public class registro extends AppCompatActivity implements NavigationView.OnNavi
         Tipo_espectador.setAdapter(adapter3);
 
     }
-    public void registro(View view){
+    public void registro(View view) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext());
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
-            cedula = (EditText) findViewById(R.id.txt_cedula);
-            nombres = (EditText) findViewById(R.id.txt_nombres);
-            apellidos = (EditText) findViewById(R.id.txt_apellidos);
-            telefono = (EditText) findViewById(R.id.txt_telefono);
-            correo = (EditText) findViewById(R.id.txt_correo);
-         String c_cedula = cedula.getText().toString();
-        String c_nombres =nombres.getText().toString();
+        cedula = (EditText) findViewById(R.id.txt_cedula);
+        nombres = (EditText) findViewById(R.id.txt_nombres);
+        apellidos = (EditText) findViewById(R.id.txt_apellidos);
+        telefono = (EditText) findViewById(R.id.txt_telefono);
+        correo = (EditText) findViewById(R.id.txt_correo);
+        String c_cedula = cedula.getText().toString();
+        String c_nombres = nombres.getText().toString();
         String c_apellidos = apellidos.getText().toString();
-        String c_telefono =telefono.getText().toString();
+        String c_telefono = telefono.getText().toString();
         String c_correo = correo.getText().toString();
 
-        ContentValues values= new ContentValues();
 
-        values.put("cedula", c_cedula);
-        values.put("nombres", c_cedula);
-        values.put("apellidos", c_cedula);
-        values.put("telefono", c_cedula);
-        values.put("correo", c_cedula);
-        values.put("idevento", 1);
-        values.put("idhorario", 1);
-        values.put("espectador", "Estudiante");
-        BaseDeDatos.insert("registros",null,values);
-        Toast.makeText(getApplicationContext(),"Usuario Registrado", Toast.LENGTH_SHORT).show();
+        if (c_cedula == " " || c_cedula == "" || c_nombres == "" || c_nombres == " " || c_apellidos == "" || c_apellidos == " "
+                || c_telefono == "" || c_telefono == " " || c_correo == "" || c_correo == " ") {
+
+            Toast.makeText(getApplicationContext(), "Verifique que todos los campos esten llenos", Toast.LENGTH_SHORT).show();
+        } else {
 
 
+            ContentValues values = new ContentValues();
 
-        Intent login= new Intent(this, bienvenida.class);
-        startActivity(login);
+            values.put("cedula", c_cedula);
+            values.put("nombres", c_nombres);
+            values.put("apellidos", c_apellidos);
+            values.put("telefono", c_telefono);
+            values.put("correo", c_correo);
+            values.put("idevento", 1);
+            values.put("idhorario", 1);
+            values.put("espectador", "Estudiante");
+            BaseDeDatos.insert("registros", null, values);
+            Toast.makeText(getApplicationContext(), "Usuario Registrado", Toast.LENGTH_SHORT).show();
+
+
+            Intent login = new Intent(this, GeneradorQr.class);
+            login.putExtra("cedula", c_cedula);
+            login.putExtra("nombres", c_nombres);
+            login.putExtra("apellidos", c_apellidos);
+            login.putExtra("telefono", c_telefono);
+            login.putExtra("correo", c_correo);
+            startActivity(login);
+        }
     }
 
     @Override
