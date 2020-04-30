@@ -55,6 +55,10 @@ public class EscanearQr extends AppCompatActivity implements NavigationView.OnNa
         vistaescaner.startCamera();
 
     }
+    public void verificc(View view){
+        Intent intent= new Intent(EscanearQr.this, comprobarCedula.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
