@@ -122,5 +122,28 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         return autenticacion;
 
     }
+    public String[] consultaCedula(String cedula){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] projection = {"cedula","nombres","apellidos","telefono","correo","idevento","idhorario","espectador"};
+
+        Cursor fila = db.rawQuery(
+                "select *  from registros where cedula=" + cedula, null);
+
+        if(fila.moveToFirst()) {
+
+            String nombre = fila.getString(0);
+            String apellido = fila.getString(2);
+            String telefono = fila.getString(3);
+            String correo = fila.getString(4);
+            String idEvento = fila.getString(5);
+            String idhorario = fila.getString(6);
+            String espectador = fila.getString(7);
+            String[] resultado = {nombre, apellido, telefono, correo, idEvento, idhorario, espectador};
+            return resultado;
+        }
+        else return null;
+
+    }
 }
 

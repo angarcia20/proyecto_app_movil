@@ -2,7 +2,9 @@ package com.example.poliviewer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,4 +37,15 @@ public class confirmacion extends AppCompatActivity {
         Correo = (TextView) findViewById(R.id.correo);
         Correo.setText(correo);
     }
+    public void comprobar(View view) {
+
+        Intent comprobacion = new Intent(this, cargaqr.class);
+
+        startActivity(comprobacion);
+
+
+    }
+
+
+
 }

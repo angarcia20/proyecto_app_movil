@@ -31,6 +31,7 @@ public class comprobarCedula extends AppCompatActivity implements NavigationView
 
         ContentValues values = new ContentValues();
 
+
     }
 
     @Override
@@ -48,6 +49,19 @@ public class comprobarCedula extends AppCompatActivity implements NavigationView
             boolean documento= admin.confirmacioncedula(ncedula);
             if (documento == true) {
                 Toast.makeText(this, "Usuario se encuentra registrado", Toast.LENGTH_SHORT).show();
+                String [] resultados= admin.consultaCedula(ncedula);
+
+                Intent comprobacion = new Intent(this, confirmacion.class);
+
+
+
+                comprobacion.putExtra("cedula", ncedula);
+                comprobacion.putExtra("nombres", resultados[1]);
+                comprobacion.putExtra("apellidos",  resultados[2]);
+                comprobacion.putExtra("telefono",  resultados[3]);
+                comprobacion.putExtra("correo",  resultados[4]);
+                startActivity(comprobacion);
+
             } else {
                 Toast.makeText(this, "No se encuentra registrado", Toast.LENGTH_SHORT).show();
 
