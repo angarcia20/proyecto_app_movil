@@ -148,6 +148,11 @@ public class registro extends AppCompatActivity implements NavigationView.OnNavi
                 Intent logout= new Intent(this, MainActivity.class);
                 startActivity(logout);
                 break;
+            case R.id.eventos:
+                Toast.makeText(registro.this,"Eventos disponibles",Toast.LENGTH_SHORT).show();
+                Intent eventos= new Intent(this, todosloseventos.class);
+                startActivity(eventos);
+                break;
 
         }
         return false;

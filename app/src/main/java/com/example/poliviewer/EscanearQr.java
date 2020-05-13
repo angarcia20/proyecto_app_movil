@@ -83,6 +83,11 @@ public class EscanearQr extends AppCompatActivity implements NavigationView.OnNa
                 Intent logout= new Intent(this, MainActivity.class);
                 startActivity(logout);
                 break;
+            case R.id.eventos:
+                Toast.makeText(EscanearQr.this,"Eventos disponibles",Toast.LENGTH_SHORT).show();
+                Intent eventos= new Intent(this, todosloseventos.class);
+                startActivity(eventos);
+                break;
 
         }
         return false;
