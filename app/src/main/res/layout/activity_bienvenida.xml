@@ -53,23 +53,6 @@
     android:background="@color/colorPrimary"/>
 
 
-        <!-- <LinearLayout
-             android:id="@+id/linearLayout"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
-
-             <androidx.appcompat.widget.Toolbar
-                 android:layout_width="match_parent"
-                 android:id="@+id/toolbar"
-                 android:layout_height="?attr/actionBarSize"
-                 android:background="@color/colorPrimary"
-                 android:theme="@style/Theme.AppCompat.DayNight">
-
-             </androidx.appcompat.widget.Toolbar>
-
-         </LinearLayout>-->
-
-
  </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

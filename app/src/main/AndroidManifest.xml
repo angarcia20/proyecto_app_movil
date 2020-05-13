@@ -15,12 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".descripcionevento"></activity>
-        <activity android:name=".todosloseventos">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".todosloseventos"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         </activity>
         <activity android:name=".soporte" />
         <activity
@@ -44,14 +40,12 @@
         <activity
             android:name=".splash_screen"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
+
         </activity>
         <activity android:name=".MainActivity" />
     </application>
