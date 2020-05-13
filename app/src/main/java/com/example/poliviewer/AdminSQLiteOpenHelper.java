@@ -8,11 +8,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "app_movil";
+    public static final String DATABASE_NAME = "bd_app";
     public static final String TABLA_NAME = "login";
     public static final String COLUMNA_ID = "_id";
     public static final String COLUMNA_USUARIO = "usuario";
     public static final String COLUMNA_CONTRASEÑA = "contraseña";
+
+
+
 
     public static final String SQL_CREAR = "create table "
             + TABLA_NAME + " (" + COLUMNA_ID
@@ -21,15 +24,15 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             + " TEXT not null)";
 
     public static final String SQL_REGISTROS = "create table "
-            + "registros" + " (" + "_id"
+            + "registros" + " (" + "id"
             + " INTEGER primary key autoincrement, "+ "cedula"
-            + " TEXT not null, " + "nombres"
+            + " TEXT not null, "+ "nombres"
             + " TEXT not null, "+ "apellidos"
-            + " TEXT not null, " + "telefono"
-            + " TEXT not null, " + "correo"
+            + " TEXT not null, "+ "telefono"
+            + " TEXT not null, "+ "correo"
             + " INTEGER not null, "+ "idevento"
-            + " INTEGER not null, " + "idhorario"
-            + " INTEGER not null, " + "espectador"
+            + " INTEGER not null, "+ "idhorario"
+            + " INTEGER not null, "+ "espectador"
             + " TEXT not null)";
 
 
@@ -45,6 +48,9 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS login");
+        db.execSQL("DROP TABLE IF EXISTS registros");
+        onCreate(db);
 
     }
     public void agregar(String usuario, String contraseña){
@@ -93,6 +99,26 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
         boolean autenticacion = cursor.moveToFirst();
         db.close();
+        return autenticacion;
+
+    }
+    public boolean confirmacioncedula(String cedula){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] projection = {"id","cedula","nombres","apellidos","telefono","correo","idevento","idhorario","espectador"};
+
+        Cursor cursor =
+                db.query("registros",projection,
+                        "cedula = ?",
+                        new String[] {String.valueOf(cedula) },
+                        null,
+                        null,
+                        null,
+                        null);
+
+
+        boolean autenticacion = cursor.moveToFirst();
+
         return autenticacion;
 
     }

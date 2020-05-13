@@ -94,8 +94,8 @@ public class registro extends AppCompatActivity implements NavigationView.OnNavi
         String c_correo = correo.getText().toString();
 
 
-        if (c_cedula == " " || c_cedula == "" || c_nombres == "" || c_nombres == " " || c_apellidos == "" || c_apellidos == " "
-                || c_telefono == "" || c_telefono == " " || c_correo == "" || c_correo == " ") {
+        if (c_cedula.isEmpty() || c_nombres.isEmpty() || c_apellidos.isEmpty() ||
+                c_telefono.isEmpty() || c_correo.isEmpty()) {
 
             Toast.makeText(getApplicationContext(), "Verifique que todos los campos esten llenos", Toast.LENGTH_SHORT).show();
         } else {
