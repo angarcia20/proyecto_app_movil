@@ -6,6 +6,7 @@
     <uses-sdk tools:overrideLibrary="com.airbnb.lottie" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,40 +15,73 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".confirmacion"></activity>
+
+        
+        <activity
+            android:name=".crearevento"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+
+
+        <activity android:name=".confirmacion" />
+
+
         <activity android:name=".descripcionevento" />
+
+
         <activity
             android:name=".todosloseventos"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
         <activity android:name=".soporte" />
+
+
         <activity
             android:name=".cargaLogin"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
         <activity
             android:name=".cargaqr"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
         <activity android:name=".GeneradorQr" />
-        <activity android:name=".comprobarCedula">
-        </activity>
+
+
+        <activity android:name=".comprobarCedula" />
+
+
         <activity android:name=".QR" />
+
+
         <activity
             android:name=".bienvenida"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
         <activity
             android:name=".EscanearQr"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
         <activity
             android:name=".registro"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
         <activity
             android:name=".splash_screen"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-           <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".MainActivity" />
     </application>
 

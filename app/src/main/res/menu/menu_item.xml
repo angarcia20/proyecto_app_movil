@@ -12,8 +12,11 @@
         android:id="@+id/contact"
         android:title="Escanear Qr"/>
     <item
+        android:id="@+id/crearevento"
+        android:title="Crear Evento"/>
+    <item
         android:id="@+id/eventos"
-        android:title="Eventos"/>
+        android:title="Eventos Disponibles"/>
 
     <item
         android:id="@+id/logout"

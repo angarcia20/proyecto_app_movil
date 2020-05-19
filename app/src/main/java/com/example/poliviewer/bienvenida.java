@@ -80,6 +80,11 @@ public class bienvenida extends AppCompatActivity implements NavigationView.OnNa
                 Intent eventos= new Intent(this, todosloseventos.class);
                 startActivity(eventos);
                 break;
+            case R.id.crearevento:
+                Toast.makeText(bienvenida.this,"Crear evento",Toast.LENGTH_SHORT).show();
+                Intent crearevento= new Intent(this, crearevento.class);
+                startActivity(crearevento);
+                break;
 
         }
         return false;

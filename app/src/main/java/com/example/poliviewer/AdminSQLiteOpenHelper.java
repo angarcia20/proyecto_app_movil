@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "bd_app";
+    public static final String DATABASE_NAME = "bd_aplicacionmovil";
     public static final String TABLA_NAME = "login";
     public static final String COLUMNA_ID = "_id";
     public static final String COLUMNA_USUARIO = "usuario";
@@ -35,6 +35,16 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             + " INTEGER not null, "+ "espectador"
             + " TEXT not null)";
 
+    public static final String SQL_CREAREVENTO = "create table "
+            + "crearevento" + " (" + "id"
+            + " INTEGER primary key autoincrement, "+ "titulo"
+            + " TEXT not null, "+ "descripcion"
+            + " TEXT not null, "+ "tipodeevento"
+            + " TEXT not null, "+ "direccionevento"
+            + " TEXT not null, "+ "fecha"
+            + " TEXT not null, "+ "hora"
+            + " TEXT not null)";
+
 
     public AdminSQLiteOpenHelper(Context context){
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
@@ -44,12 +54,14 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREAR);
         db.execSQL(SQL_REGISTROS);
+        db.execSQL(SQL_CREAREVENTO);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS login");
         db.execSQL("DROP TABLE IF EXISTS registros");
+        db.execSQL("DROP TABLE IF EXISTS crearevento");
         onCreate(db);
 
     }
@@ -140,6 +152,34 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             String idhorario = fila.getString(6);
             String espectador = fila.getString(7);
             String[] resultado = {nombre, apellido, telefono, correo, idEvento, idhorario, espectador};
+            return resultado;
+        }
+        else return null;
+
+    }
+    public String[][] consultareventos(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] projection = {"titulo","descripcion","tipodeevento","direccionevento","fecha","hora"};
+
+        Cursor fila = db.rawQuery(
+                "select *  from crearevento", null);
+
+        if(fila.moveToFirst()) {
+
+            String[][] resultado = new String[db.rawQuery("select * from crearevento",null).getCount()][7];
+            for (int i = 0 ; i< resultado.length ; i++){
+                    resultado[i][0]= fila.getString(0);;
+                resultado[i][1]= fila.getString(1);
+                resultado[i][2]= fila.getString(2);
+                resultado[i][3]= fila.getString(3);
+                resultado[i][4]= fila.getString(4);
+                resultado[i][5]= fila.getString(5);
+                resultado[i][6]= "5";
+                fila.moveToNext();
+
+            }
+
             return resultado;
         }
         else return null;

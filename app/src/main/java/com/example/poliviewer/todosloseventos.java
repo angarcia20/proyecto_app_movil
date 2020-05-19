@@ -9,21 +9,26 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 public class todosloseventos extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     ListView lista;
+/*
     String[][] datos= {
             {"Big Data","5","Es un término evolutivo que describe cualquier cantidad voluminosa de datos estructurados, semiestructurados y no estructurados que tienen el potencial de ser extraídos para obtener información.","Cra 112 # 13a-24"},
             {"Seguridad informatica","8","La seguridad informática es una disciplina que se encarga de proteger la integridad y la privacidad de la información almacenada en un sistema informático. De todas formas, no existe ninguna técnica que permita asegurar la inviolabilidad de un sistema.","Cll 26 #33-24"},
             {"Lo que el mundo no sabe","4","Una pandemia de influenza es un brote mundial de un nuevo virus de influenza A que es muy diferente de los virus de la influenza estacional A que han circulado entre las personas recientemente o que están en circulación en el momento.","Cra 7 #53-2"},
 
-    };
-    int[] datosImg= {R.drawable.bigdata,R.drawable.seguridad,R.drawable.pandemias};
+    };*/
+
+
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -46,13 +51,21 @@ public class todosloseventos extends AppCompatActivity implements NavigationView
         toogle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        String[][] datos = datos();
+        if(datos == null){
+            Toast.makeText(getApplicationContext(), "No hay eventos disponibles", Toast.LENGTH_SHORT).show();
 
+        }else {
+            int[] datosImg= new int[datos.length];
+            for (int i = 0 ; i<datosImg.length; i++){
+                datosImg[i] = R.drawable.logo_poli;
 
+            }
 
+            lista = (ListView) findViewById(R.id.lvLista);
 
-        lista = (ListView) findViewById(R.id.lvLista);
-
-        lista.setAdapter(new Adaptador(this,datos,datosImg));
+            lista.setAdapter(new Adaptador(this, datos, datosImg));
+        }
     }
 
     @Override
@@ -83,8 +96,21 @@ public class todosloseventos extends AppCompatActivity implements NavigationView
                 Intent eventos= new Intent(this, todosloseventos.class);
                 startActivity(eventos);
                 break;
+            case R.id.crearevento:
+                Toast.makeText(todosloseventos.this,"Crear evento",Toast.LENGTH_SHORT).show();
+                Intent crearevento= new Intent(this, crearevento.class);
+                startActivity(crearevento);
+                break;
 
         }
         return false;
+    }
+
+    public String[][] datos(){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext());
+
+        String[][] datos = new  AdminSQLiteOpenHelper(this).consultareventos();
+
+        return datos;
     }
 }

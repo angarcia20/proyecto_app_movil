@@ -35,11 +35,11 @@ public class Adaptador extends BaseAdapter {
         ImageView imagen = (ImageView) vista.findViewById(R.id.imagen);
         RatingBar calificacion = (RatingBar) vista.findViewById(R.id.puntuacion);
 
-        titulo.setText(datos[i][0]);
+        titulo.setText(datos[i][1]);
         descripcion.setText(datos[i][2]);
-        direccion.setText(datos[i][3]);
+        direccion.setText(datos[i][4]);
         imagen.setImageResource(datosImg[i]);
-        calificacion.setProgress(Integer.valueOf(datos[i][1]));
+        calificacion.setProgress(Integer.valueOf(datos[i][6]));
 
         imagen.setTag(i);
         imagen.setOnClickListener(new View.OnClickListener() {
@@ -47,9 +47,9 @@ public class Adaptador extends BaseAdapter {
             public void onClick(View v) {
                 Intent visores = new Intent(contexto,descripcionevento.class);
                 visores.putExtra("IMG",datosImg[(Integer)v.getTag()]);
-                visores.putExtra("tituloImagen",datos[(Integer)v.getTag()][0]);
+                visores.putExtra("tituloImagen",datos[(Integer)v.getTag()][1]);
                 visores.putExtra("descripcionImagen",datos[(Integer)v.getTag()][2]);
-                visores.putExtra("direccionImagen",datos[(Integer)v.getTag()][3]);
+                visores.putExtra("direccionImagen",datos[(Integer)v.getTag()][4]);
                 contexto.startActivity(visores);
 
 

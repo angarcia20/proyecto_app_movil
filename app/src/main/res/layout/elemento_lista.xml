@@ -40,7 +40,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="TextView"
-        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
@@ -72,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.387"
-        app:srcCompat="@drawable/bigdata" />
+        app:srcCompat="@drawable/logo_poli" />
 
     <TextView
         android:id="@+id/descripcion"
