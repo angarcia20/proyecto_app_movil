@@ -41,7 +41,7 @@ public class soporte extends AppCompatActivity implements NavigationView.OnNavig
 
             ContentValues values = new ContentValues();
 
-            values.put("titulo", tema.getText().toString());
+            values.put("tema", tema.getText().toString());
             values.put("descripcion", descripcion.getText().toString());
             BaseDeDatos.insert("soporte", null, values);
             Toast.makeText(getApplicationContext(), "Soporte creado", Toast.LENGTH_SHORT).show();

@@ -37,7 +37,7 @@ public class Adaptador extends BaseAdapter {
         descripcion.setText(datos[i][2]);
         direccion.setText(datos[i][4]);
         imagen.setImageResource(datosImg[i]);
-        calificacion.setProgress(Integer.valueOf(datos[i][6]));
+        calificacion.setProgress(Integer.valueOf(datos[i][7]));
 
         imagen.setTag(i);
         imagen.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +48,8 @@ public class Adaptador extends BaseAdapter {
                 visores.putExtra("tituloImagen",datos[(Integer)v.getTag()][1]);
                 visores.putExtra("descripcionImagen",datos[(Integer)v.getTag()][2]);
                 visores.putExtra("direccionImagen",datos[(Integer)v.getTag()][4]);
-                visores.putExtra("hora",datos[(Integer)v.getTag()][5]);
+                visores.putExtra("fecha",datos[(Integer)v.getTag()][5]);
+                visores.putExtra("hora",datos[(Integer)v.getTag()][6]);
                 visores.putExtra("tipodeevento",datos[(Integer)v.getTag()][3]);
                 contexto.startActivity(visores);
 

@@ -175,7 +175,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
         if(fila.moveToFirst()) {
 
-            String[][] resultado = new String[db.rawQuery("select * from crearevento",null).getCount()][7];
+            String[][] resultado = new String[db.rawQuery("select * from crearevento",null).getCount()][8];
             for (int i = 0 ; i< resultado.length ; i++){
                     resultado[i][0]= fila.getString(0);;
                 resultado[i][1]= fila.getString(1);
@@ -183,7 +183,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 resultado[i][3]= fila.getString(3);
                 resultado[i][4]= fila.getString(4);
                 resultado[i][5]= fila.getString(5);
-                resultado[i][6]= "5";
+                resultado[i][6]= fila.getString(6);
+                resultado[i][7]= "5";
                 fila.moveToNext();
 
             }

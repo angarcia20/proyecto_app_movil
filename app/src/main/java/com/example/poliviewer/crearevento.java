@@ -142,6 +142,10 @@ public class crearevento extends AppCompatActivity implements NavigationView.OnN
             values.put("hora", horaevent);
             BaseDeDatos.insert("crearevento", null, values);
             Toast.makeText(getApplicationContext(), "Evento Registrado", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(crearevento.this,cargaqr.class);
+
+            startActivity(intent);
         }
 
     }

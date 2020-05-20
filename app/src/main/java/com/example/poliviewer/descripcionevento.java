@@ -17,8 +17,8 @@ public class descripcionevento extends AppCompatActivity {
         TextView titulo = (TextView) findViewById(R.id.titulo);
         ImageView imagen = (ImageView) findViewById(R.id.imagen);
         TextView descripcion = (TextView) findViewById(R.id.descripcionsoporte);
-        TextView direccion = (TextView) findViewById(R.id.direccion);
-        TextView hora = (TextView) findViewById(R.id.horadelevento);
+        final TextView direccion = (TextView) findViewById(R.id.direccion);
+        TextView fecha = (TextView) findViewById(R.id.horadelevento);
         TextView tipodeevento = (TextView) findViewById(R.id.tipoevento);
         ImageView imagenmaps = (ImageView) findViewById(R.id.mapsevento);
 
@@ -28,7 +28,7 @@ public class descripcionevento extends AppCompatActivity {
         imagen.setImageResource(extras.getInt("IMG"));
         descripcion.setText(extras.getString("descripcionImagen"));
         direccion.setText(extras.getString("direccionImagen"));
-        hora.setText(extras.getString("horaevento"));
+        fecha.setText(extras.getString("fecha") + " - "+ extras.getString("hora") +" hrs");
         tipodeevento.setText("Este evento es " + extras.getString("tipodeevento"));
 
 
@@ -36,6 +36,7 @@ public class descripcionevento extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(descripcionevento.this,MapsActivity.class);
+                intent.putExtra("direccion",direccion.toString());
                 startActivity(intent);
 
             }
