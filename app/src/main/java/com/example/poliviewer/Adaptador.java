@@ -2,12 +2,10 @@ package com.example.poliviewer;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -30,7 +28,7 @@ public class Adaptador extends BaseAdapter {
 
         final View vista= inflater.inflate(R.layout.elemento_lista,null);
         TextView titulo= (TextView) vista.findViewById(R.id.titulo);
-        final TextView descripcion= (TextView) vista.findViewById(R.id.descripcion);
+        final TextView descripcion= (TextView) vista.findViewById(R.id.descripcionsoporte);
         TextView direccion= (TextView) vista.findViewById(R.id.direccion);
         ImageView imagen = (ImageView) vista.findViewById(R.id.imagen);
         RatingBar calificacion = (RatingBar) vista.findViewById(R.id.puntuacion);
@@ -50,6 +48,8 @@ public class Adaptador extends BaseAdapter {
                 visores.putExtra("tituloImagen",datos[(Integer)v.getTag()][1]);
                 visores.putExtra("descripcionImagen",datos[(Integer)v.getTag()][2]);
                 visores.putExtra("direccionImagen",datos[(Integer)v.getTag()][4]);
+                visores.putExtra("hora",datos[(Integer)v.getTag()][5]);
+                visores.putExtra("tipodeevento",datos[(Integer)v.getTag()][3]);
                 contexto.startActivity(visores);
 
 

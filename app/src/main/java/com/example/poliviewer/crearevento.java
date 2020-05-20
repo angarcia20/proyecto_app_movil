@@ -100,6 +100,11 @@ public class crearevento extends AppCompatActivity implements NavigationView.OnN
                 Intent crearevento= new Intent(this, crearevento.class);
                 startActivity(crearevento);
                 break;
+            case R.id.soporte:
+                Toast.makeText(crearevento.this,"Crear soporte",Toast.LENGTH_SHORT).show();
+                Intent soporte= new Intent(this, soporte.class);
+                startActivity(soporte);
+                break;
 
         }
         return false;

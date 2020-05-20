@@ -76,7 +76,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/descripcion"
+                    android:id="@+id/descripcionsoporte"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="180dp"
@@ -135,7 +135,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.494"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/descripcion"
+                    app:layout_constraintTop_toBottomOf="@+id/descripcionsoporte"
                     app:layout_constraintVertical_bias="0.123"
                     app:srcCompat="@drawable/logo_poli" />
 
@@ -154,7 +154,7 @@
                     app:layout_constraintVertical_bias="0.122" />
 
                 <EditText
-                    android:id="@+id/hora"
+                    android:id="@+id/horadescripciondelevento"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="760dp"

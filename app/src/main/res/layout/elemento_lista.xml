@@ -77,7 +77,7 @@
         app:srcCompat="@drawable/logo_poli" />
 
     <TextView
-        android:id="@+id/descripcion"
+        android:id="@+id/descripcionsoporte"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="TextView"

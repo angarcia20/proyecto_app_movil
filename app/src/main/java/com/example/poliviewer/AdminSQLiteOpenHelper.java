@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "bd_aplicacionmovil";
+    public static final String DATABASE_NAME = "bd_version2";
     public static final String TABLA_NAME = "login";
     public static final String COLUMNA_ID = "_id";
     public static final String COLUMNA_USUARIO = "usuario";
@@ -45,6 +45,12 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
             + " TEXT not null, "+ "hora"
             + " TEXT not null)";
 
+    public static final String SQL_SOPORTE = "create table "
+            + "soporte" + " (" + "id"
+            + " INTEGER primary key autoincrement, "+ "tema"
+            + " TEXT not null, "+ "descripcion"
+            + " TEXT not null)";
+
 
     public AdminSQLiteOpenHelper(Context context){
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
@@ -55,6 +61,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREAR);
         db.execSQL(SQL_REGISTROS);
         db.execSQL(SQL_CREAREVENTO);
+        db.execSQL(SQL_SOPORTE);
     }
 
     @Override
@@ -62,6 +69,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS login");
         db.execSQL("DROP TABLE IF EXISTS registros");
         db.execSQL("DROP TABLE IF EXISTS crearevento");
+        db.execSQL("DROP TABLE IF EXISTS soporte");
         onCreate(db);
 
     }

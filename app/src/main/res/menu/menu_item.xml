@@ -17,6 +17,9 @@
     <item
         android:id="@+id/eventos"
         android:title="Eventos Disponibles"/>
+    <item
+        android:id="@+id/soporte"
+        android:title="Soporte"/>
 
     <item
         android:id="@+id/logout"
