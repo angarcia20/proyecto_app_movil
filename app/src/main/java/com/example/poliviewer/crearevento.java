@@ -118,7 +118,7 @@ public class crearevento extends AppCompatActivity implements NavigationView.OnN
         tipodeevento= (EditText)  findViewById(R.id.txt_tipoevento);
         direccionevento= (EditText) findViewById(R.id.txt_direccionevento);
          fecha= (EditText) findViewById(R.id.fecha);
-         hora= (EditText) findViewById(R.id.hora);
+         hora= (EditText) findViewById(R.id.horadelevento);
 
          String tituloevent = titulo.getText().toString();
         String descripcionevent= descripcion.getText().toString();

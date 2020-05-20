@@ -18,7 +18,7 @@ public class descripcionevento extends AppCompatActivity {
         ImageView imagen = (ImageView) findViewById(R.id.imagen);
         TextView descripcion = (TextView) findViewById(R.id.descripcionsoporte);
         TextView direccion = (TextView) findViewById(R.id.direccion);
-        TextView hora = (TextView) findViewById(R.id.horadescripciondelevento);
+        TextView hora = (TextView) findViewById(R.id.horadelevento);
         TextView tipodeevento = (TextView) findViewById(R.id.tipoevento);
         ImageView imagenmaps = (ImageView) findViewById(R.id.mapsevento);
 
