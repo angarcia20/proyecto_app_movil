@@ -10,16 +10,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class registro extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Spinner spinner1;
@@ -57,18 +61,20 @@ public class registro extends AppCompatActivity implements NavigationView.OnNavi
 
 
         String [] opciones = {"C.C","T.I","Cedula de extranjeria"};
-        String [] evento={"4112 - seguridad informatica","3114 - Big Data","2111 - Lo que el mundo no sabe"};
-        String [] horarios={"10:00 AM - 1:00 PM","2:00 PM - 5:00 PM","6:00 PM - 9:00 PM"};
+        ArrayList<String> evento=consulta();
+        //String [] horarios={"10:00 AM - 1:00 PM","2:00 PM - 5:00 PM","6:00 PM - 9:00 PM"};
+        ArrayList<String> horarios = consultahora();
         String [] espectador={"Estudiante","Profesor","Invitado (Externo a la universidad)"};
-
 
         spinner1 = (Spinner) findViewById(R.id.spinnerid);
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         spinner1.setAdapter(adapter);
 
-        eventos= (Spinner) findViewById(R.id.spinnereventos);
-        ArrayAdapter<String> adapter1= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,evento);
-        eventos.setAdapter(adapter1);
+        eventos=(Spinner) findViewById(R.id.spinnereventos);
+        ArrayAdapter<CharSequence> adaptador= new ArrayAdapter(this,android.R.layout.simple_spinner_item,evento);
+        eventos.setAdapter(adaptador);
+
+        //ArrayList<String> aux=consultahora((String) eventos.getSelectedItem());
 
         Horario= (Spinner) findViewById(R.id.spinnerhorarios);
         ArrayAdapter<String> adapter2= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,horarios);
@@ -79,6 +85,9 @@ public class registro extends AppCompatActivity implements NavigationView.OnNavi
         Tipo_espectador.setAdapter(adapter3);
 
     }
+
+
+
     public void registro(View view) {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext());
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
@@ -168,4 +177,31 @@ public class registro extends AppCompatActivity implements NavigationView.OnNavi
         }
         return false;
     }
+    private ArrayList<String> consulta() {
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext());
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+        ArrayList<String> neventos = new ArrayList<String>();
+        Cursor cursor = BaseDeDatos.rawQuery("SELECT * FROM crearevento", null);
+
+        while (cursor.moveToNext()) {
+            neventos.add(cursor.getInt(0)+" - "+cursor.getString(1));
+        }
+        return neventos;
     }
+
+    private ArrayList<String> consultahora(){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getApplicationContext());
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+        ArrayList<String> heventos = new ArrayList<String>();
+        Cursor cursor = BaseDeDatos.rawQuery("SELECT * FROM crearevento", null);
+
+        while (cursor.moveToNext()) {
+            heventos.add(cursor.getString(6));
+        }
+        return heventos;
+    }
+
+
+    }
+
